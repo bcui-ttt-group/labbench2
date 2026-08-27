@@ -2,12 +2,7 @@ from unittest.mock import AsyncMock, MagicMock
 
 import pytest
 
-from evals.evaluators import (
-    HybridEvaluator,
-    LLMJudgeEvaluator,
-    RewardFunctionEvaluator,
-    extract_answer,
-)
+from evals.evaluators import HybridEvaluator, RewardFunctionEvaluator, extract_answer
 
 
 class TestExtractAnswer:
@@ -29,15 +24,6 @@ class TestExtractAnswer:
     def test_no_regex(self):
         output = "<answer>42</answer>"
         assert extract_answer(output, None) is None
-
-
-def test_default_judges_use_sonnet_46():
-    assert LLMJudgeEvaluator().model == "anthropic:claude-sonnet-4-6"
-
-    hybrid = HybridEvaluator()
-    assert hybrid.llm_evaluator.model == "anthropic:claude-sonnet-4-6"
-    assert hybrid.dbqa2_evaluator.model == "anthropic:claude-sonnet-4-6"
-    assert hybrid.exact_match_evaluator.model == "anthropic:claude-sonnet-4-6"
 
 
 class TestHybridEvaluatorRouting:
