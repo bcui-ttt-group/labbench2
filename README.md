@@ -276,6 +276,8 @@ If you use `LABBench2` in your research, please cite:
 
 Notable changes to `LABBench2` will be documented here. We expect to update the harness and dataset only in the case of clear issues, and do not intend to meaningfully change the benchmark over time.
 
+**2026-08-27** - The default judge used by `LLMJudgeEvaluator` and `HybridEvaluator` changed uniformly from Claude Sonnet 4.5 to Claude Sonnet 4.6. This changes only the default judge model; prompts and all other grading behavior are unchanged. Historical and published results remain tied to the Claude Sonnet 4.5 judge that produced them.
+
 **2026-03-23** - Two fixes to the Anthropic native runner. The runner now handles `pause_turn` stop reason for server-side tools, continuing the conversation when tools hit API iteration limits as recommended by the documentation. Additionally, extended thinking is now enabled when the effort flag is set, using adaptive thinking for 4.6+ models and budget-based thinking for 4.5 models. Published results have been updated accordingly.
 
 **2026-03-13** - We corrected an inadvertent data issue with sourcequality tasks. This has resulted in an entirely new set of 150 `sourcequality` tasks being incorporated into the dataset. We've also made a corresponding harness update to work with the new task structure. Published results have been updated accordingly.

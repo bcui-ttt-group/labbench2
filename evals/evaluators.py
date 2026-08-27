@@ -32,7 +32,7 @@ class LLMJudgeEvaluator(Evaluator):
 
     def __init__(
         self,
-        model: str = "anthropic:claude-sonnet-4-5",
+        model: str = "anthropic:claude-sonnet-4-6",
         temperature: float = 0.0,
         timeout: int = 120,
         prompt_template: str = STRUCTURED_EVALUATION_PROMPT,
@@ -182,7 +182,7 @@ class HybridEvaluator(Evaluator):
 
     def __init__(
         self,
-        llm_model: str = "anthropic:claude-sonnet-4-5",
+        llm_model: str = "anthropic:claude-sonnet-4-6",
         llm_temperature: float = 0.0,
         llm_timeout: int = 120,
     ):
